@@ -17,6 +17,7 @@ URL: http://www.cs.unc.edu/~rademach/glui
 Source: glui_v%{major}_%{minor}.tar.bz2
 Patch: glui.patch.bz2
 License: LGPL
+BuildRoot: %{_tmppath}/%{name}-root
 BuildRequires: libmesaglu-devel libmesaglut-devel
 
 %description
