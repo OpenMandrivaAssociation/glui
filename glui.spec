@@ -2,7 +2,7 @@
 %define major 2
 %define minor 2
 %define version %{major}.35
-%define release %mkrel 3
+%define rel %mkrel 4
 
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} %major -d
@@ -11,7 +11,7 @@
 Summary: GL User Interface Library
 Name: %name
 Version: 2.35
-Release: %mkrel %release
+Release: %mkrel %rel
 Group: System/Libraries
 URL: http://www.cs.unc.edu/~rademach/glui
 Source: glui_v%{major}_%{minor}.tar.bz2
