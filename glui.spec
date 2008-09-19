@@ -15,7 +15,7 @@ Release: %mkrel %release
 Group: System/Libraries
 URL: http://www.cs.unc.edu/~rademach/glui
 Source: glui_v%{major}_%{minor}.tar.bz2
-Patch: glui.patch.bz2
+Patch: glui.patch
 License: LGPL
 BuildRoot: %{_tmppath}/%{name}-root
 BuildRequires: libmesaglu-devel libmesaglut-devel
@@ -59,17 +59,17 @@ Their source code is in %_datadir/%name-demos.
 %build
 mkdir lib
 mkdir bin
-make GLUT_LIB_LOCATION=%{_prefix}/X11R6/%{_lib} GLUT_INC_LOCATION=%{_prefix}/X11R6/include/GL CFLAGS="$RPM_OPT_FLAGS" CC=g++
+make GLUT_LIB_LOCATION=%{_libdir} GLUT_INC_LOCATION=%{_includedir}/GL CFLAGS="%{optflags}" CC=g++
 for i in 1 2 3 4 5; do mv bin/example$i bin/GLUI-example$i; done
 
 %install
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/%_bindir
-mkdir -p $RPM_BUILD_ROOT%{_prefix}/X11R6/include/GL
-mkdir -p $RPM_BUILD_ROOT%{_prefix}/X11R6/%{_lib}
+mkdir -p $RPM_BUILD_ROOT%{_includedir}/GL
+mkdir -p $RPM_BUILD_ROOT%{_libdir}
 mkdir -p $RPM_BUILD_ROOT/%_datadir/%name-demos
-cp lib/*.a $RPM_BUILD_ROOT%{_prefix}/X11R6/%{_lib}
-cp *.h $RPM_BUILD_ROOT%{_prefix}/X11R6/include/GL
+cp lib/*.a $RPM_BUILD_ROOT%{_libdir}
+cp *.h $RPM_BUILD_ROOT%{_includedir}/GL
 cp bin/* $RPM_BUILD_ROOT/%_bindir
 cp example*.cpp $RPM_BUILD_ROOT/%_datadir/%name-demos
 
@@ -79,8 +79,8 @@ rm -r $RPM_BUILD_ROOT
 %files -n %libnamedev
 %defattr(-,root,root)
 %doc glui_manual.pdf readme.txt
-%{_prefix}/X11R6/include/GL
-%{_prefix}/X11R6/%{_lib}/*.a
+%{_includedir}/GL
+%{_libdir}/*.a
 
 %files -n %name-demos
 %defattr(-,root,root)
