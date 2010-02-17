@@ -1,24 +1,24 @@
-%define name glui
-%define major 2
-%define minor 2
-%define version %{major}.35
-%define rel 6
+%define	name	glui
+%define	major	2
+%define	minor	2
+%define	version	%{major}.35
+%define	rel	7
 
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} %major -d
 
 
-Summary: GL User Interface Library
-Name: %name
-Version: 2.35
-Release: %mkrel %rel
-Group: System/Libraries
-URL: http://www.cs.unc.edu/~rademach/glui
-Source: glui_v%{major}_%{minor}.tar.bz2
-Patch: glui.patch
-License: LGPL
-BuildRoot: %{_tmppath}/%{name}-root
-BuildRequires: libmesaglu-devel libmesaglut-devel
+Summary:	GL User Interface Library
+Name:		%name
+Version:	2.35
+Release:	%mkrel %rel
+Group:		System/Libraries
+URL:		http://www.cs.unc.edu/~rademach/glui
+Source:		glui_v%{major}_%{minor}.tar.bz2
+Patch:		glui.patch
+License:	LGPL
+BuildRoot:	%{_tmppath}/%{name}-root
+BuildRequires:	libmesaglu-devel libmesaglut-devel
 
 %description
 GLUI is a GLUT-based C++ user interface library which provides
