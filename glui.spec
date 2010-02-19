@@ -2,7 +2,7 @@
 %define	major	2
 %define	minor	2
 %define	version	%{major}.35
-%define	rel	7
+%define	rel	8
 
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} %major -d
@@ -13,7 +13,7 @@ Name:		%name
 Version:	2.35
 Release:	%mkrel %rel
 Group:		System/Libraries
-URL:		http://www.cs.unc.edu/~rademach/glui
+URL:		http://glui.sourceforge.net/
 Source:		glui_v%{major}_%{minor}.tar.bz2
 Patch:		glui.patch
 License:	LGPL
