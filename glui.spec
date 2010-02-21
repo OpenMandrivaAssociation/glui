@@ -1,8 +1,8 @@
 %define	name	glui
 %define	major	2
 %define	minor	2
-%define	version	%{major}.35
-%define	rel	8
+%define	version	%{major}.36
+%define	rel	1
 
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} %major -d
@@ -10,7 +10,7 @@
 
 Summary:	GL User Interface Library
 Name:		%name
-Version:	2.35
+Version:	2.36
 Release:	%mkrel %rel
 Group:		System/Libraries
 URL:		http://glui.sourceforge.net/
