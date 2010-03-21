@@ -4,8 +4,8 @@
 %define	version	%{major}.36
 %define	rel	1
 
-%define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} %major -d
+%define libname		%mklibname %{name} %major
+%define libnamedev 	%mklibname %{name} %major -d
 
 
 Summary:	GL User Interface Library
@@ -14,8 +14,9 @@ Version:	2.36
 Release:	%mkrel %rel
 Group:		System/Libraries
 URL:		http://glui.sourceforge.net/
-Source:		glui_v%{major}_%{minor}.tar.bz2
-Patch:		glui.patch
+Source:		%{name}-%version.tar.bz2
+#patch sent upstream by Kharec
+Patch:		glui-2.36-fix-cpp-examples.patch
 License:	LGPL
 BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	libmesaglu-devel libmesaglut-devel
@@ -53,13 +54,15 @@ This package includes some binaries statically built with GLUI.
 Their source code is in %_datadir/%name-demos.
 
 %prep
-%setup -q -n glui_v%{major}_%{minor}
-%patch -p1
+%setup -q 
+%patch -p0
 
 %build
 mkdir lib
 mkdir bin
+cd src/
 make GLUT_LIB_LOCATION=%{_libdir} GLUT_INC_LOCATION=%{_includedir}/GL CFLAGS="%{optflags}" CC=g++
+
 for i in 1 2 3 4 5; do mv bin/example$i bin/GLUI-example$i; done
 
 %install
@@ -68,22 +71,28 @@ mkdir -p $RPM_BUILD_ROOT/%_bindir
 mkdir -p $RPM_BUILD_ROOT%{_includedir}/GL
 mkdir -p $RPM_BUILD_ROOT%{_libdir}
 mkdir -p $RPM_BUILD_ROOT/%_datadir/%name-demos
-cp lib/*.a $RPM_BUILD_ROOT%{_libdir}
-cp *.h $RPM_BUILD_ROOT%{_includedir}/GL
-cp bin/* $RPM_BUILD_ROOT/%_bindir
-cp example*.cpp $RPM_BUILD_ROOT/%_datadir/%name-demos
+cp src/lib/*.a $RPM_BUILD_ROOT%{_libdir}
+cp src/include/GL/*.h $RPM_BUILD_ROOT%{_includedir}/GL
+cp src/bin/* $RPM_BUILD_ROOT/%_bindir
+cp src/example/example*.cpp $RPM_BUILD_ROOT/%_datadir/%name-demos
 
 %clean
-rm -r $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT
 
 %files -n %libnamedev
 %defattr(-,root,root)
-%doc glui_manual.pdf readme.txt
+%doc src/doc/*
 %{_includedir}/GL
 %{_libdir}/*.a
 
 %files -n %name-demos
 %defattr(-,root,root)
 %_datadir/%name-demos/example*.cpp
-%_bindir/GLUI-example*
+%_bindir/example6
+%_bindir/ppm2array
+%_bindir/GLUI-example1
+%_bindir/GLUI-example2
+%_bindir/GLUI-example3
+%_bindir/GLUI-example4
+%_bindir/GLUI-example5
 
