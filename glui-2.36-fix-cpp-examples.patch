@@ -1,0 +1,60 @@
+Index: src/example/example1.cpp
+===================================================================
+--- src/example/example1.cpp
++++ src/example/example1.cpp	2010-03-21 18:03:22.000000000 +0100
+@@ -136,7 +136,7 @@
+ 
+   glutMainLoop();
+ 
+-  return EXIT_SUCCESS;
++  return 0;
+ }
+ 
+ 
+Index: src/example/example2.cpp
+===================================================================
+--- src/example/example2.cpp
++++ src/example/example2.cpp	2010-03-21 18:05:05.000000000 +0100
+@@ -253,5 +253,5 @@
+ 
+   glutMainLoop();
+ 
+-  return EXIT_SUCCESS;
++  return 0;
+ }
+Index: src/example/example3.cpp
+===================================================================
+--- src/example/example3.cpp
++++ src/example/example3.cpp	2010-03-21 18:07:04.000000000 +0100
+@@ -437,6 +437,6 @@
+   /**** Regular GLUT main loop ****/  
+   glutMainLoop();
+ 
+-  return EXIT_SUCCESS;
++  return 0;
+ }
+ 
+Index: src/example/example4.cpp
+===================================================================
+--- src/example/example4.cpp
++++ src/example/example4.cpp	2010-03-21 18:08:13.000000000 +0100
+@@ -351,6 +351,6 @@
+   
+   glutMainLoop();
+ 
+-  return EXIT_SUCCESS;
++  return 0;
+ }
+ 
+Index: src/example/example5.cpp
+===================================================================
+--- src/example/example5.cpp
++++ src/example/example5.cpp	2010-03-21 18:09:45.000000000 +0100
+@@ -496,6 +496,6 @@
+   
+   glutMainLoop();
+ 
+-  return EXIT_SUCCESS;
++  return 0;
+ }
+ 
