@@ -1,0 +1,17 @@
+diff -up glui-2.37/CMakeLists.txt.omv~ glui-2.37/CMakeLists.txt
+--- glui-2.37/CMakeLists.txt.omv~	2020-06-12 20:37:40.240546866 +0200
++++ glui-2.37/CMakeLists.txt	2020-06-12 20:43:22.803640862 +0200
+@@ -49,10 +49,11 @@ add_library(glui_obj OBJECT ${GLUI_SRCS}
+ set_property(TARGET glui_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
+ 
+ add_library(glui SHARED $<TARGET_OBJECTS:glui_obj>)
+-target_link_libraries(glui ${GLUT_LIBRARIES})
++set_target_properties(glui PROPERTIES SOVERSION 2 VERSION 2.37)
++target_link_libraries(glui ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES})
+ 
+ add_library(glui_static STATIC $<TARGET_OBJECTS:glui_obj>)
+-target_link_libraries(glui_static ${GLUT_LIBRARIES})
++target_link_libraries(glui_static ${GLUT_LIBRARIES} ${OPENGL_LIBRARIES})
+ 
+ add_executable(ppm2array tools/ppm.cpp tools/ppm2array.cpp)
+ target_link_libraries(ppm2array)

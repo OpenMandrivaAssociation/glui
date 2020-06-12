@@ -1,0 +1,12 @@
+diff -up glui-2.37/include/GL/glui.h.omv~ glui-2.37/include/GL/glui.h
+--- glui-2.37/include/GL/glui.h.omv~	2020-06-12 20:57:59.879237592 +0200
++++ glui-2.37/include/GL/glui.h	2020-06-12 20:58:29.793691521 +0200
+@@ -929,7 +929,7 @@ public:
+         spacebar_mouse_click = true;    /* Does spacebar simulate a mouse click? */
+         live_type      = GLUI_LIVE_NONE;
+         text = "";
+-        last_live_text == "";
++        last_live_text = "";
+         live_inited    = false;
+         collapsible    = false;
+         is_open        = true;
