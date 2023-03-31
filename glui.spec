@@ -8,7 +8,7 @@
 Summary:	GL User Interface Library
 Name:		glui
 Version:	2.37
-Release:	1
+Release:	2
 Group:		System/Libraries
 License:	LGPL
 URL:		http://github.com/libglui/glui
