@@ -11,7 +11,7 @@ Version:	2.37
 Release:	2
 Group:		System/Libraries
 License:	LGPL
-URL:		http://github.com/libglui/glui
+URL:		https://github.com/libglui/glui
 Source:		https://github.com/libglui/glui/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0:		glui-2.37-fix-build-system.patch
 Patch1:		glui-2.37-fix-bogus-header.patch
